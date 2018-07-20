@@ -2,6 +2,5 @@
 #define SSA_TO_SRT
 
 bool lineStartsWith( char*,  char* );
-char* extractSubtitleGroup( char* );
-
+char * convertTimeStamp( char* );
 #endif
