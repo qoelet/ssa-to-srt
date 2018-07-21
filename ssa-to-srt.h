@@ -2,5 +2,5 @@
 #define SSA_TO_SRT
 
 bool lineStartsWith( char*,  char* );
-char * convertTimeStamp( char* );
+void convertTimeStamp( char [], char [] );
 #endif

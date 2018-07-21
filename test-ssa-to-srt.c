@@ -9,9 +9,12 @@ MU_TEST(test_lineStartsWith) {
 }
 
 MU_TEST(test_convertTimeStamp) {
-  char * t = convertTimeStamp("01:23:45.12");
-  char * u = "01:23:45,120";
-	mu_check(strcmp(t, u) == 0);
+  char given[13] = "1:23:45.12";
+  char result[13] = {};
+  char expected[13] = "1:23:45,120";
+  convertTimeStamp(given, result);
+
+	mu_check(strcmp(result, expected) == 0);
 }
 
 MU_TEST_SUITE(test_suite) {

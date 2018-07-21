@@ -6,6 +6,7 @@
 
 #define IN 1
 #define OUT 0
+#define TIMESTAMP 13
 
 // Lifted from: https://stackoverflow.com/questions/29788983/split-char-string-with-multi-character-delimiter-in-c
 char *multi_tok(char *input, char *delimiter) {
@@ -40,7 +41,9 @@ int main( int argc, char* argv[] ) {
   char* token;
   char* src;
   char* tmp;
-  char *sel[2];
+  char given[TIMESTAMP];
+  char from[TIMESTAMP];
+  char to[TIMESTAMP];
   char **sub;
 
   state = OUT;
@@ -62,17 +65,18 @@ int main( int argc, char* argv[] ) {
         // Layer, Start, End, Style, Actor, MarginL, MarginR, MarginV, Effect, Text
         token = strsep(&src, ",");
         token = strsep(&src, ",");
-        // TODO: Parse out microseconds, replace '.' with ','
-        sel[0] = token; // start
+        strncpy(given, token, TIMESTAMP); // start
+        convertTimeStamp(given, from);
         token = strsep(&src, ",");
-        sel[1] = token; // end
-        token = strsep(&src, ",");
-        token = strsep(&src, ",");
-        token = strsep(&src, ",");
+        strncpy(given, token, TIMESTAMP); // end
+        convertTimeStamp(given, to);
         token = strsep(&src, ",");
         token = strsep(&src, ",");
         token = strsep(&src, ",");
-        printf("%d\n0%s --> %s\n", count, sel[0], sel[1]);
+        token = strsep(&src, ",");
+        token = strsep(&src, ",");
+        token = strsep(&src, ",");
+        printf("%d\n0%s --> %s\n", count, from, to);
 
         token = multi_tok(src, "\\N");
         while( token != NULL ) {

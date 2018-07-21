@@ -8,16 +8,14 @@ bool lineStartsWith( const char *s, const char *t ) {
   return 0;
 }
 
-const char* convertTimeStamp( char *s ) {
-  char t[13] = {};
-  char * result;
-  result = malloc(sizeof(t));
+void convertTimeStamp( char s[], char t[] ) {
+  int i = 0;
 
-  strcpy(t, s);
-  if( t[8] == '.' ) {
-    t[8] = ',';
+  while( (t[i] = s[i]) != '\0' )
+    ++i;
+
+  if( t[7] == '.' ) {
+    t[7] = ',';
   }
-  t[11] = '0';
-  strcpy(result, t);
-  return result;
+  t[10] = '0';
 }
