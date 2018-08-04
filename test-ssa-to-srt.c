@@ -17,9 +17,19 @@ MU_TEST(test_convertTimeStamp) {
 	mu_check(strcmp(result, expected) == 0);
 }
 
+MU_TEST(test_stripFormatting) {
+  char given[10] = "{\an2}foo";
+  char result[10] = {};
+  char expected[10] = "foo";
+  stripFormatting(given, result);
+
+	mu_check(strcmp(result, expected) == 0);
+}
+
 MU_TEST_SUITE(test_suite) {
 	MU_RUN_TEST(test_lineStartsWith);
 	MU_RUN_TEST(test_convertTimeStamp);
+	MU_RUN_TEST(test_stripFormatting);
 }
 
 int main(int argc, char *argv[]) {

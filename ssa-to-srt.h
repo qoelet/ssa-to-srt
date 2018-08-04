@@ -3,4 +3,5 @@
 
 bool lineStartsWith( char*,  char* );
 void convertTimeStamp( char [], char [] );
+void stripFormatting( char [], char [] );
 #endif

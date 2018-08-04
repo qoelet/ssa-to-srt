@@ -7,6 +7,7 @@
 #define IN 1
 #define OUT 0
 #define TIMESTAMP 13
+#define SUBTITLE 150
 
 // Lifted from: https://stackoverflow.com/questions/29788983/split-char-string-with-multi-character-delimiter-in-c
 char *multi_tok(char *input, char *delimiter) {
@@ -44,7 +45,8 @@ int main( int argc, char* argv[] ) {
   char given[TIMESTAMP];
   char from[TIMESTAMP];
   char to[TIMESTAMP];
-  char **sub;
+  char sub[SUBTITLE];
+  char strippedSub[SUBTITLE];
 
   state = OUT;
   count = 1;
@@ -80,7 +82,9 @@ int main( int argc, char* argv[] ) {
 
         token = multi_tok(src, "\\N");
         while( token != NULL ) {
-          printf("%s\n", token);
+          strncpy(sub, token, SUBTITLE);
+          stripFormatting(sub, strippedSub);
+          printf("%s\n", strippedSub);
           token = multi_tok(NULL, "\\N");
         }
         count++;
