@@ -4,7 +4,7 @@ A simple SSA to good old fashioned SRT converter.
 
 ## Motivation
 
-1. Watching movies on the PS4 requires subtitles in simple SRT files
+1. Watching movies on the PS4 requires subtitles in simple SRT format
 2. I ~~suck at~~ want to learn some basic C programming
 
 ## Install & usage
@@ -26,7 +26,7 @@ Of course! Any time.
 -Any time.
 ```
 
-## Running the test
+## Running the tests
 
 ```shell
 $ ./test.sh
