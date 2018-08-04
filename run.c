@@ -33,6 +33,10 @@ char *multi_tok(char *input, char *delimiter) {
 }
 
 int main( int argc, char* argv[] ) {
+  if( argc < 2 ) {
+    printf("ssa-to-srt: missing SSA file\n");
+    return EXIT_FAILURE;
+  }
   char const* const fileName = argv[1];
   FILE* file = fopen(fileName, "r");
   char line[256];
@@ -94,5 +98,5 @@ int main( int argc, char* argv[] ) {
   }
 
   fclose(file);
-  return 0;
+  return EXIT_SUCCESS;
 }
