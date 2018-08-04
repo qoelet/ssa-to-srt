@@ -1,9 +1,19 @@
 # SSA to SRT converter
 
-Sketch in progress...
+A simple SSA to good old fashioned SRT converter.
+
+## Motivation
+
+1. Watching movies on the PS4 requires subtitles in simple SRT files
+2. I ~~suck at~~ want to learn some basic C programming
+
+## Install & usage
 
 ```shell
-$ gcc run.c ssa-to-srt.c -o run; ./run foo.ssa
+$ ./install.sh
+ssa-to-srt is installed to ~/.local/bin
+
+$ ssa-to-srt foo.ssa
 
 #...
 628
@@ -14,7 +24,11 @@ Of course! Any time.
 00:36:03,450 --> 0:36:04,950
 -Thank you.
 -Any time.
+```
 
+## Running the test
+
+```shell
 $ ./test.sh
 
 ...
@@ -23,8 +37,3 @@ $ ./test.sh
 
 Finished in 0.00003124 seconds (real) 0.00003088 seconds (proc)
 ```
-
-## Motivation
-
-1. Watching movies on the PS4 requires subtitles in `.srt` format
-2. I suck at C
